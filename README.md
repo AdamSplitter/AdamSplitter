@@ -1,5 +1,5 @@
 - 👋 Hi, I’m Brandon
-- 👀 I’m interested in artificial intelligence and machine learning
-- 🌱 I’m currently learning how to best integrate cybersecurity and artificial intelligence
-- 💞️ I’m looking to collaborate on any machine learning, cybersecurity, or artificial intelligence projects
+- 👀 I’m interested in cybersecurity and ethical hacking
+- 🌱 I’m currently learning how to best integrate cybersecurity practices and how to use them to prevent future attacks.
+- 💞️ I’m looking to collaborate on cybersecurity projects
 - 📫 How to reach me, use my github to contact me
