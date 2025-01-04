@@ -1,0 +1,33 @@
+from scapy.all import sniff # type: ignore
+from scapy.layers.inet import IP, TCP, UDP # type: ignore
+
+def packet_callback(packet):
+    try:
+        # Check if the packet has an IP layer
+        if IP in packet:
+            ip_layer = packet[IP]
+            print(f"\n[+] Packet Captured:")
+            print(f"    Source IP: {ip_layer.src}")
+            print(f"    Destination IP: {ip_layer.dst}")
+            print(f"    Protocol: {ip_layer.proto}")
+
+            # Check for TCP/UDP layers for port information
+            if TCP in packet:
+                tcp_layer = packet[TCP]
+                print(f"    Source Port: {tcp_layer.sport}")
+                print(f"    Destination Port: {tcp_layer.dport}")
+                print("    Protocol: TCP")
+            elif UDP in packet:
+                udp_layer = packet[UDP]
+                print(f"    Source Port: {udp_layer.sport}")
+                print(f"    Destination Port: {udp_layer.dport}")
+                print("    Protocol: UDP")
+    except Exception as e:
+        print(f"Error processing packet: {e}")
+
+print("Starting Network Traffic Analyzer... Press Ctrl+C to stop.")
+try:
+    # Start capturing packets on all interfaces
+    sniff(prn=packet_callback, store=0)
+except KeyboardInterrupt:
+    print("\nStopping the analyzer.")
